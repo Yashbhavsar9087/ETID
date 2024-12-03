@@ -1,189 +1,193 @@
-{% extends 'layouts/base.html' %} {% block title %} Dashboard {% endblock title %}
+{% extends 'layouts/base.html' %} {% block title %} Appointment Form {% endblock title %}
 
-<!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %} {% block content %}
-<link href="/app/base/static/assets/css/appoinment.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <style>
     body {
-        background-color: #5fcf80;
+        background-color: #f5f5f5;
     }
-    
-    #body_header {
-        width: auto;
-        margin: 0px auto;
+
+    .form-container {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+    }
+
+    .form-header {
         text-align: center;
-        font-size: 25px;
+        margin-bottom: 30px;
     }
-    
-    form {
-        max-width: 300px;
-        margin: 10px auto;
-        padding: 10px 20px;
-        background: #f4f7f8;
-        border-radius: 8px;
+
+    .form-header h1 {
+        font-size: 28px;
+        color: #333333;
+        font-weight: bold;
     }
-    
-    h1 {
-        margin: 0 0 30px 0;
-        text-align: center;
+
+    .form-header p {
+        font-size: 16px;
+        color: #555555;
     }
-    
-    input[type="text"],
-    input[type="password"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="email"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
+
+    fieldset {
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    legend {
+        font-size: 20px;
+        color: #27A891;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    label {
+        font-size: 14px;
+        color: #555555;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input,
     textarea,
     select {
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        font-size: 16px;
-        height: auto;
-        margin: auto;
-        outline: 0;
-        padding: 8px;
         width: 100%;
-        background-color: #e8eeef;
-        color: black;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-        margin-bottom: 30px;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #333333;
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
     }
-    
-    input[type="radio"],
-    input[type="checkbox"] {
-        margin: 0 4px 8px 0;
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: none;
+        border-color: #27A891;
+        background-color: #ffffff;
     }
-    
-    select {
-        padding: 6px;
-        height: 32px;
-        border-radius: 2px;
+
+    .radio-group {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
     }
-    
+
+    .radio-group label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #333333;
+    }
+
+    .radio-group input {
+        margin-right: 10px;
+    }
+
     button {
-        padding: 19px 39px 18px 39px;
-        color: #FFF;
-        background-color: #4bc970;
-        font-size: 18px;
-        text-align: center;
-        font-style: normal;
-        border-radius: 5px;
         width: 100%;
-        border: 1px solid #3ac162;
-        border-width: 1px 1px 3px;
-        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-        margin-bottom: 10px;
-    }
-    
-    fieldset {
-        margin-bottom: 30px;
+        background-color: #27A891;
+        color: #ffffff;
         border: none;
+        border-radius: 25px;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
     }
-    
-    legend {
-        font-size: 1.4em;
-        margin-bottom: 10px;
+
+    button:hover {
+        background-color: #1f8b6c;
     }
-    
-    label {
-        display: block;
-        margin-bottom: 8px;
+
+    .card {
+        background-color: #f9f9f9;
+        border: none;
+        border-radius: 20px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
-    label.light {
-        font-weight: 300;
-        display: inline;
+
+    .card-title {
+        font-size: 18px;
+        color: #333333;
+        font-weight: bold;
     }
-    
-    .number {
-        background-color: #5fcf80;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        display: inline-block;
-        font-size: 0.8em;
-        margin-right: 4px;
-        line-height: 30px;
-        text-align: center;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-radius: 100%;
-    }
-    
-    form {
-        max-width: 680px;
+
+    .card-content {
+        font-size: 14px;
+        color: #555555;
     }
 </style>
 
-<div class="container-fluid py-4" style="background-color:#5fcf80;">
-    <div id="container">
-        <!--This is a division tag for body container-->
-        <div id="body_header">
-            <!--This is a division tag for body header-->
-            <h1>Appointment Form</h1>
-            <p>Make your appointments more easier</p>
-
+<div class="container-fluid py-4">
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Book an Appointment</h1>
+            <p>Fill out the form below to schedule your appointment effortlessly.</p>
         </div>
         <form action="{{url_for('base_blueprint.add_appoinment')}}" method="post">
             <fieldset>
-                <legend><span class="number">1</span>Your basic details</legend>
-                <label for="name">Name*:</label>
-                <input type="text" id="name" name="user_name" placeholder="Name" required pattern="[a-zA-Z0-9]+">
+                <legend>Basic Details</legend>
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
 
-                <label for="mail">Email*:</label>
-                <input type="email" id="mail" name="user_email" placeholder="abc@xyz.com" required>
+                <label for="mail">Email *</label>
+                <input type="email" id="mail" name="user_email" placeholder="Enter your email" required>
 
-                <label for="tel">Contact No.:</label>
-                <input type="tel" id="tel" placeholder="90******87" name="user_num">
+                <label for="tel">Contact Number</label>
+                <input type="tel" id="tel" name="user_num" placeholder="Enter your contact number">
 
-                <label for="zoom_name">Zoom username:</label>
-                <input type="text" id="zoom_name" name="zoom_name" placeholder="xyz" pattern="[a-zA-Z0-9]+">
-
-
+                <label for="zoom_name">Zoom Username</label>
+                <input type="text" id="zoom_name" name="zoom_name" placeholder="Enter your Zoom username">
             </fieldset>
 
             <fieldset>
-                <legend><span class="number">2</span>Appointment Details</legend>
-                <label for="appointment_for">Appointment for*:</label>
+                <legend>Appointment Details</legend>
+                <label for="appointment_for">Appointment For *</label>
                 <select id="appointment_for" name="appointment_for" required>
                     <option value="General Meeting">General Meeting</option>
                     <option value="Previous Visit">Previous Visit</option>
                     <option value="New Visit">New Visit</option>
                     <option value="Other">Other</option>
                 </select>
-                <label for="appointment_description">Appointment Description:</label>
-                <textarea id="appointment_description" name="appointment_description" placeholder="I wish to get an appointment to zoom for health issues."></textarea>
-                <label for="date">Date*:</label>
-                <input type="date" name="date" value="" required></input>
-                <br>
-                <label for="time">Time*:</label>
-                <input type="time" name="time" value="" required></input>
-                <br>
-                <label for="duration">How Long??(Minutes)</label>
-                <input type="radio" name="duration" value="15" checked> 15
-                <input type="radio" name="duration" value="30"> 30
-                <input type="radio" name="duration" value="60"> 60
 
-                <input type="radio" name="duration" value="more"> more
+                <label for="appointment_description">Description</label>
+                <textarea id="appointment_description" name="appointment_description" placeholder="Briefly describe your reason for appointment"></textarea>
+
+                <label for="date">Date *</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time *</label>
+                <input type="time" id="time" name="time" required>
+
+                <label>Duration (Minutes)</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="duration" value="15" checked> 15</label>
+                    <label><input type="radio" name="duration" value="30"> 30</label>
+                    <label><input type="radio" name="duration" value="60"> 60</label>
+                    <label><input type="radio" name="duration" value="more"> More</label>
+                </div>
             </fieldset>
-            <button type="submit">Request For Appointment</button>
 
+            <button type="submit">Request Appointment</button>
         </form>
     </div>
-    {% include "includes/footer.html" %}
-
 </div>
+
+{% include "includes/footer.html" %}
 
 {% endblock content %}
 
-<!-- Specific JS goes HERE -->
 {% block javascripts %}
-<script type="text/javascript" src="https://github.com/rubyeffect/easy_fill/tree/master/lib/easy_fill-0.0.1.min.js"></script>
-
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -193,5 +197,4 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
 </script>
-
 {% endblock javascripts %}

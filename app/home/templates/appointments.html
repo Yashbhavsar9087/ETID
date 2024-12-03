@@ -1,0 +1,132 @@
+{% extends 'layouts/base.html' %} {% block title %} Dashboard {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="container-fluid py-4">
+
+    <!-- Upcoming Appointments -->
+    <h6 class="mb-4">Upcoming Appointments</h6>
+    <div class="row">
+        <div class="col-12">
+            <!-- Card 1 -->
+            <div class="card mb-4 shadow-sm border-0" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 15px;">
+                <div class="d-flex">
+                    <!-- Left Blue Card -->
+                    <div class="bg-primary text-white p-3 rounded-start" style="min-width: 120px; text-align: center;">
+                        <p class="mb-1" style="font-size: 18px; font-weight: bold;">Mon</p>
+                        <p class="mb-0" style="font-size: 16px;">2024-12-05</p>
+                        <p style="font-size: 14px;">Consultation</p>
+                    </div>
+                    <!-- Right Details -->
+                    <div class="card-body">
+                        <h5 class="card-title">General Consultation</h5>
+                        <p class="card-text">
+                            <b>Time:</b> 10:00 AM<br>
+                            <b>Location:</b> Carle Foundation Hospital<br>
+                            <b>Doctor:</b> Dr. Emily Johnson
+                        </p>
+                        <div class="text-end">
+                            <button class="btn btn-danger btn-sm rounded-pill" onclick="cancelAppointment('1')">
+                                Cancel Appointment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card mb-4 shadow-sm border-0" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 15px;">
+                <div class="d-flex">
+                    <div class="bg-primary text-white p-3 rounded-start" style="min-width: 120px; text-align: center;">
+                        <p class="mb-1" style="font-size: 18px; font-weight: bold;">Tue</p>
+                        <p class="mb-0" style="font-size: 16px;">2024-12-06</p>
+                        <p style="font-size: 14px;">Follow-Up</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Follow-Up Checkup</h5>
+                        <p class="card-text">
+                            <b>Time:</b> 2:30 PM<br>
+                            <b>Location:</b> OSF Heart of Mary Medical Center<br>
+                            <b>Doctor:</b> Dr. Alan Smith
+                        </p>
+                        <div class="text-end">
+                            <button class="btn btn-danger btn-sm rounded-pill" onclick="cancelAppointment('2')">
+                                Cancel Appointment
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Previous Appointments -->
+    <h6 class="mt-5 mb-4">Previous Appointments</h6>
+    <div class="row">
+        <div class="col-12">
+            <!-- Card 1 -->
+            <div class="card mb-4 shadow-sm border-0" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 15px;">
+                <div class="d-flex">
+                    <!-- Left Blue Card -->
+                    <div class="bg-primary text-white p-3 rounded-start" style="min-width: 120px; text-align: center;">
+                        <p class="mb-1" style="font-size: 18px; font-weight: bold;">Fri</p>
+                        <p class="mb-0" style="font-size: 16px;">2024-11-29</p>
+                        <p style="font-size: 14px;">Therapy</p>
+                    </div>
+                    <!-- Right Details -->
+                    <div class="card-body">
+                        <h5 class="card-title">Therapy Session</h5>
+                        <p class="card-text">
+                            <b>Time:</b> 1:00 PM<br>
+                            <b>Location:</b> Christie Clinic<br>
+                            <b>Therapist:</b> Dr. Sophia Davis
+                        </p>
+                        <div class="text-end">
+                            <button class="btn btn-danger btn-sm rounded-pill" onclick="cancelAppointment('3')">
+                                Remove from History
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card mb-4 shadow-sm border-0" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 15px;">
+                <div class="d-flex">
+                    <div class="bg-primary text-white p-3 rounded-start" style="min-width: 120px; text-align: center;">
+                        <p class="mb-1" style="font-size: 18px; font-weight: bold;">Thu</p>
+                        <p class="mb-0" style="font-size: 16px;">2024-11-28</p>
+                        <p style="font-size: 14px;">Checkup</p>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Annual Checkup</h5>
+                        <p class="card-text">
+                            <b>Time:</b> 11:00 AM<br>
+                            <b>Location:</b> Promise Healthcare<br>
+                            <b>Doctor:</b> Dr. Mark Lee
+                        </p>
+                        <div class="text-end">
+                            <button class="btn btn-danger btn-sm rounded-pill" onclick="cancelAppointment('4')">
+                                Remove from History
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "includes/footer.html" %}
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+<script>
+    function cancelAppointment(appointmentId) {
+        // Add logic here to handle the cancellation
+        alert(`Appointment ID ${appointmentId} canceled.`);
+    }
+</script>
+{% endblock javascripts %}

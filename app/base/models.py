@@ -1,7 +1,7 @@
 
 
 from flask_login import UserMixin
-from sqlalchemy import Binary, Column, Integer, String, Date, Time
+from sqlalchemy import BINARY, Column, Integer, String, Date, Time
 
 from app import db, login_manager
 
@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     category = Column(String)
     username = Column(String, unique=True)
     email = Column(String, unique=True)
-    password = Column(Binary)
+    password = Column(BINARY)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():

@@ -206,8 +206,8 @@
                 </div>
                 <br>
                 <h3>What are your symptoms?</h3>
-                <div class="symptom-checker mt-7 mb-5">
-                    <div class="ms-md-auto ps-md-3 d-flex align-items-center mt-3">
+                <div class="symptom-checker mt-2 mb-0">
+                    <div class="ms-md-auto ps-md-3 d-flex align-items-center mt-1">
                         <div class="bg-white border-radius-lg d-flex">
                             <form action="{{url_for('home_blueprint.add')}}" method="post">
                                 <datalist id="suggestions">
@@ -252,25 +252,49 @@
                         <h3>Common Cold</h3>
                         <p>You may have this condition with an accuracy of <b>95%</b></p>
                         <p><b>Description:</b> A viral infection that affects the upper respiratory tract, primarily the nose and throat. Symptoms include sneezing, runny nose, and mild fever, typically lasting 5-7 days.</p>
-                        <p><b>Self-Care and OTC Medicines:</b> Stay hydrated, Rest, Avoid crowded places, Use over-the-counter medications like decongestants or acetaminophen.</p>
+                        <div class="card mt-3 p-3 shadow-sm" style="background-color: #f0f9f6; border-left: 4px solid #27A891; border-radius: 10px;">
+                            <h5 style="color: #27A891;">Self-Care and OTC Medicines</h5>
+                            <ul style="padding-left: 20px; font-size: 16px;">
+                                <li>Stay hydrated.</li>
+                                <li>Get plenty of rest.</li>
+                                <li>Avoid crowded places to prevent spreading.</li>
+                                <li>Use over-the-counter medications like decongestants or acetaminophen.</li>
+                            </ul>
+                        </div>
                     </div>
-                
+                    
                     <div id="Flu" class="tabcontent mt-3">
                         <h3>Flu</h3>
                         <p>You may have this condition with an accuracy of <b>90%</b></p>
                         <p><b>Description:</b> An infectious disease caused by the influenza virus. Symptoms include high fever, chills, body aches, fatigue, and sore throat, usually resolving in 7-10 days.</p>
-                        <p><b>Self-Care and OTC Medicines:</b> Rest adequately, Drink warm fluids, Use antipyretics like ibuprofen, and consider antiviral medications if prescribed by a doctor.</p>
+                        <div class="card mt-3 p-3 shadow-sm" style="background-color: #f0f9f6; border-left: 4px solid #27A891; border-radius: 10px;">
+                            <h5 style="color: #27A891;">Self-Care and OTC Medicines</h5>
+                            <ul style="padding-left: 20px; font-size: 16px;">
+                                <li>Rest adequately.</li>
+                                <li>Drink warm fluids.</li>
+                                <li>Use antipyretics like ibuprofen to reduce fever.</li>
+                                <li>Consider antiviral medications if prescribed by a doctor.</li>
+                            </ul>
+                        </div>
                     </div>
-                
+                    
                     <div id="Allergies" class="tabcontent mt-3">
                         <h3>Allergies</h3>
                         <p>You may have this condition with an accuracy of <b>85%</b></p>
                         <p><b>Description:</b> A reaction by the immune system to certain substances like pollen, dust, or specific foods. Symptoms include sneezing, itchy eyes, and rashes.</p>
-                        <p><b>Self-Care and OTC Medicines:</b> Avoid allergens, Take antihistamines like loratadine, Keep your living space clean, and use nasal sprays for congestion if needed.</p>
+                        <div class="card mt-3 p-3 shadow-sm" style="background-color: #f0f9f6; border-left: 4px solid #27A891; border-radius: 10px;">
+                            <h5 style="color: #27A891;">Self-Care and OTC Medicines</h5>
+                            <ul style="padding-left: 20px; font-size: 16px;">
+                                <li>Avoid allergens like pollen and dust.</li>
+                                <li>Take antihistamines like loratadine.</li>
+                                <li>Keep your living space clean to reduce triggers.</li>
+                                <li>Use nasal sprays for congestion if needed.</li>
+                            </ul>
+                        </div>
                     </div>
-                
+                    
                     <!-- Cards below all diseases -->
-                    <div class="mt-4">
+                    <div class="mt-6">
                         <!-- Closest Appointments Card -->
                         <div class="card shadow-sm border-0 rounded-full mb-3" style="background-color: #f7f7f7;">
                             <div class="card-body">
